@@ -1,6 +1,6 @@
 # Newsic
 
-### > `News like music in your ears.`
+### `News made like music in your ears.`
 
 > Developer: <a href="http://github.com/githiomi">Daniel Githiomi</a>
 
