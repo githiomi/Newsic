@@ -45,9 +45,21 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     // Custom Added dependencies
+
+    // Lombok - Compile Time library - https://projectlombok.org/setup/android
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
     // Picasso - Image rendering - https://github.com/square/picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     // Volley - JSON parser - https://www.geeksforgeeks.org/volley-library-in-android/?ref=lbp
     implementation 'com.android.volley:volley:1.2.1'
+
+    //Retrofit - HTTP client for Android and Java - https://github.com/square/retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // GSON - Convert POJOs to JSON - https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.10.1'
 }
