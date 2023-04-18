@@ -20,11 +20,13 @@ import githiomi.dhosiolux.newsic.models.Category;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
     // Adapter Variables
+    OnCategoryClickInterface categoryClickInterface;
     List<Category> categoriesList;
     Context context;
 
     // Constructor
-    public CategoryAdapter(List<Category> categoriesList, Context context) {
+    public CategoryAdapter(OnCategoryClickInterface onCategoryClickInterface, List<Category> categoriesList, Context context) {
+        this.categoryClickInterface = onCategoryClickInterface;
         this.categoriesList = categoriesList;
         this.context = context;
     }
@@ -53,6 +55,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @Override
     public int getItemCount() {
         return categoriesList.size();
+    }
+
+    // Interface to handle on click inside main activity
+    public interface OnCategoryClickInterface {
+
+        void onCategoryClick(int categoryPosition);
+
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
