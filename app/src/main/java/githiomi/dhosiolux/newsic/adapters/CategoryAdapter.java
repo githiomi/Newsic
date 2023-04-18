@@ -50,6 +50,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
         Picasso.get().load(category.getCategoryImageUrl()).into(holder.categoryImage);
 
+        // Add the on click listener
+        holder.itemView.setOnClickListener((View v) ->
+
+                // When a category item is clicked, call the interface
+                categoryClickInterface.onCategoryClick(position)
+
+        );
+
     }
 
     @Override
