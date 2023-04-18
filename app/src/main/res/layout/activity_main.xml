@@ -53,7 +53,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:layout_marginTop="18dp"
             android:background="@color/main_color" />
 
@@ -65,7 +65,9 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_below="@id/LL_categoryHeader"
-        android:padding="10dp" />
+        android:orientation="horizontal"
+        android:padding="10dp"
+        tools:listitem="@layout/rv_item_category" />
 
     <LinearLayout
         android:id="@+id/LL_trendingHeader"
@@ -100,6 +102,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/LL_trendingHeader"
+        android:orientation="vertical"
         android:padding="10dp" />
 
 </RelativeLayout>
