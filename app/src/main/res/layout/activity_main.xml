@@ -26,7 +26,7 @@
             android:paddingHorizontal="10dp"
             android:text="@string/global_news"
             android:textAllCaps="true"
-            android:textColor="@color/main_color"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -96,6 +96,22 @@
 
     </LinearLayout>
 
+    <!-- Loading Progress Bar -->
+    <RelativeLayout
+        android:id="@+id/RL_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/LL_trendingHeader">
+
+        <ProgressBar
+            android:id="@+id/PB_trending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/main_color" />
+
+    </RelativeLayout>
+
     <!-- Trending news Recycler View -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RV_trendingNews"
@@ -103,7 +119,8 @@
         android:layout_height="match_parent"
         android:layout_below="@id/LL_trendingHeader"
         android:orientation="vertical"
-        tools:listitem="@layout/rv_item_trending"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:visibility="gone"
+        tools:listitem="@layout/rv_item_trending" />
 
 </RelativeLayout>
