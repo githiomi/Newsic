@@ -47,7 +47,7 @@ dependencies {
     // Custom Added dependencies
 
     // Lombok - Compile Time library - https://projectlombok.org/setup/android
-    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    compileOnly 'org.projectlombok:lombok:1.18.26'
     annotationProcessor 'org.projectlombok:lombok:1.18.26'
 
     // Picasso - Image rendering - https://github.com/square/picasso
