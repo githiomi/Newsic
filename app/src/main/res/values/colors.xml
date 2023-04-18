@@ -12,4 +12,11 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+
+    <!-- Custom Colors -->
+    <color name="raisin_black">#212227</color>
+    <color name="prussian_blue">#002642</color>
+    <color name="main_color">#E59500</color>
+    <color name="rich_black">#02040F</color>
+    <color name="dim_gray">#637074</color>
 </resources>

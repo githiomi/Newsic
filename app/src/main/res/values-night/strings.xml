@@ -6,4 +6,5 @@
     <!-- Custom Strings  -->
     <string name="content_description">Image Content Description</string>
     <string name="app_moto">News, like music to your ears.</string>
+    <string name="global_news">Global News</string>
 </resources>
