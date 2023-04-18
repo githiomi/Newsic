@@ -1,8 +1,10 @@
-package githiomi.dhosiolux.newsic;
+package githiomi.dhosiolux.newsic.activities;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import githiomi.dhosiolux.newsic.R;
 
 public class MainActivity extends AppCompatActivity {
 

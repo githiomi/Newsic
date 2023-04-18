@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import githiomi.dhosiolux.newsic.R;
@@ -21,7 +20,7 @@ import githiomi.dhosiolux.newsic.models.Category;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
     // Adapter Variables
-    List<Category> categoriesList = new ArrayList<Category>();
+    List<Category> categoriesList;
     Context context;
 
     // Constructor
