@@ -103,6 +103,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/LL_trendingHeader"
         android:orientation="vertical"
+        tools:listitem="@layout/rv_item_trending"
         android:padding="10dp" />
 
 </RelativeLayout>
