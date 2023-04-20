@@ -13,14 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import org.parceler.Parcels;
-
 import java.util.List;
 
 import githiomi.dhosiolux.newsic.R;
 import githiomi.dhosiolux.newsic.activities.ArticleDetailActivity;
 import githiomi.dhosiolux.newsic.models.Article;
-import githiomi.dhosiolux.newsic.models.Constants;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
 
@@ -61,7 +58,11 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             Intent articleDetailIntent = new Intent(context, ArticleDetailActivity.class);
 
             // Pass the selected article to a new intent
-            articleDetailIntent.putExtra(Constants.ARTICLE_WRAP, Parcels.wrap(article));
+            articleDetailIntent.putExtra("imageUrl", article.getUrlToImage());
+            articleDetailIntent.putExtra("title", article.getTitle());
+            articleDetailIntent.putExtra("subtitle", article.getDescription());
+            articleDetailIntent.putExtra("content", article.getContent());
+            articleDetailIntent.putExtra("externalUrl", article.getUrl());
 
             // Start the activity
             context.startActivity(articleDetailIntent);

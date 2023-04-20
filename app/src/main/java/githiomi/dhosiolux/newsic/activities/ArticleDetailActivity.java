@@ -15,7 +15,6 @@ import com.squareup.picasso.Picasso;
 
 import githiomi.dhosiolux.newsic.databinding.ActivityArticleDetailBinding;
 import githiomi.dhosiolux.newsic.models.Article;
-import githiomi.dhosiolux.newsic.models.Constants;
 
 public class ArticleDetailActivity extends AppCompatActivity {
 
@@ -50,7 +49,13 @@ public class ArticleDetailActivity extends AppCompatActivity {
         // Get content from intent
         Intent intent = getIntent();
         // Get passed article
-        article = intent.getParcelableExtra(Constants.ARTICLE_WRAP);
+        String image = intent.getStringExtra("imageUrl");
+        String title = intent.getStringExtra("title");
+        String subtitle = intent.getStringExtra("subtitle");
+        String content = intent.getStringExtra("content");
+        String url = intent.getStringExtra("externalUrl");
+
+        article = new Article(title, subtitle, url, image, content);
 
         // Populate the views
         populateViews(article);

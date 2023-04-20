@@ -2,11 +2,8 @@ package githiomi.dhosiolux.newsic.models;
 
 import org.parceler.Parcel;
 
-import lombok.Data;
-
 // This is the class that holds the structure of each individual news article
 @Parcel
-@Data
 public class Article {
 
     // Article instance variables
@@ -24,6 +21,7 @@ public class Article {
     }
 
     // Constructor
+    //Main constructor
     public Article(String author, String title, String description, String url, String urlToImage, String publishedAt, String content) {
         this.author = author;
         this.title = title;
@@ -31,6 +29,15 @@ public class Article {
         this.url = url;
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
+        this.content = content;
+    }
+
+    // Alt constructor
+    public Article(String title, String description, String url, String urlToImage, String content) {
+        this.title = title;
+        this.description = description;
+        this.url = url;
+        this.urlToImage = urlToImage;
         this.content = content;
     }
 
@@ -90,4 +97,5 @@ public class Article {
     public void setContent(String content) {
         this.content = content;
     }
+
 }
