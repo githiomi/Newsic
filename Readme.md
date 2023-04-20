@@ -1,6 +1,6 @@
 # Newsic
 
-### `News made like music in your ears.`
+#### `News made like music in your ears.`
 
 > Developer: <a href="http://github.com/githiomi">Daniel Githiomi</a>
 
@@ -33,10 +33,10 @@ Further updates on the way.
 It is made entirely using Android Studio where all the following files were created and modified to
 achieve the output as you see it.
 
-* Java - For both the front-end and back-end.
-* APIs - To retrieve weather data
-* Picasso - Image Renderer
-* Volley - JSON Parser
+* `Java` - For both the front-end and back-end.
+* `APIs` - To retrieve weather data
+* `Picasso` - Image Renderer
+* `Retrofit` - HTTP Client and Gson Parser
 
 ## 🪲 Known Bugs
 
@@ -56,7 +56,7 @@ In order to enjoy the features of this application you will need to:
 * Connect a physical or run a virtual device (API 33 or higher)
 * Install the application on your device of choice
 * Select the `Newsic` application icon.
-* Enjoy the Online Shopping Assistant mobile app.
+* Enjoy the `Newsic` mobile app.
 
 ## 📧 Support and contact details
 
