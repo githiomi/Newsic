@@ -1,8 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/rich_black"
     tools:context=".activities.ArticleDetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/TB_customToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="5dp"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/globe" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:letterSpacing=".05"
+            android:paddingHorizontal="10dp"
+            android:text="@string/global_news"
+            android:textAllCaps="true"
+            android:textColor="@color/main_color_variant"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/BTN_readArticle"
+        android:layout_below="@id/TB_customToolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/IV_articleImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="@string/content_description"
+                android:padding="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/trending_item_ph" />
+
+            <TextView
+                android:id="@+id/TV_articleTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/IV_articleImage"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="15dp"
+                android:text="@string/lorem_ipsum"
+                android:textAllCaps="true"
+                android:textColor="@color/main_color"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TV_articleSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TV_articleTitle"
+                android:paddingHorizontal="15dp"
+                android:text="@string/lorem_ipsum"
+                android:textColor="@color/dim_gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/TV_articleContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TV_articleSubtitle"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:text="@string/lorem_ipsum"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/BTN_readArticle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/read_full_article"
+        android:textAllCaps="true"
+        android:textColor="@color/rich_black" />
+
+</RelativeLayout>

@@ -18,6 +18,11 @@ public class Article {
     private String publishedAt;
     private String content;
 
+    // Empty constructor
+    public Article() {
+        // Needed by the parcel library
+    }
+
     // Constructor
     public Article(String author, String title, String description, String url, String urlToImage, String publishedAt, String content) {
         this.author = author;

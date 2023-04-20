@@ -13,4 +13,5 @@
     <string name="api_key">e56d55726f354d99bbaff93c5e374f5b</string>
     <string name="api_error">Error loading news. Check your internet connection…</string>
     <string name="loading">Loading news articles. Please wait...</string>
+    <string name="read_full_article">Read Full Article...</string>
 </resources>

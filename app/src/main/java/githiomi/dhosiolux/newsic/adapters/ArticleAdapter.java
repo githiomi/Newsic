@@ -63,6 +63,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             // Pass the selected article to a new intent
             articleDetailIntent.putExtra(Constants.ARTICLE_WRAP, Parcels.wrap(article));
 
+            // Start the activity
+            context.startActivity(articleDetailIntent);
+
         });
 
     }

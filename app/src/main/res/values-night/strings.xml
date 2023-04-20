@@ -11,4 +11,5 @@
     <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
     <string name="api_error">Error loading news. Check your internet connection…</string>
     <string name="loading">Loading news articles. Please wait...</string>
+    <string name="read_full_article">Read Full Article...</string>
 </resources>
