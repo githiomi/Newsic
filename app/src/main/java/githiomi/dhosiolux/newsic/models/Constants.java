@@ -22,8 +22,7 @@ public class Constants {
             COUNTRY + "&excludeDomains=" + EXCLUDED_DOMAIN + "&sortBy=" + SORT_BY + "&language=" +
             LANGUAGE + "&apiKey=" + NEWS_API_KEY;
 
-    public static final String GET_NEWS_BY_CATEGORY_URL = "https://newsapi.org/v2/top-headlines?country=" +
-            COUNTRY + "&category=science&apiKey=" + NEWS_API_KEY;
+    public static final String ARTICLE_WRAP = "wrapped article";
 
     // Prevent init of the class
     private Constants() {

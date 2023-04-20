@@ -1,6 +1,7 @@
 package githiomi.dhosiolux.newsic.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import githiomi.dhosiolux.newsic.R;
+import githiomi.dhosiolux.newsic.activities.ArticleDetailActivity;
 import githiomi.dhosiolux.newsic.models.Article;
+import githiomi.dhosiolux.newsic.models.Constants;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
 
@@ -48,6 +53,17 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         holder.articleTitle.setText(article.getTitle());
         holder.articleSubtitle.setText(article.getDescription());
+
+        // Add an on click listener to the item view
+        holder.itemView.setOnClickListener((View view) -> {
+
+            // Handle the click event
+            Intent articleDetailIntent = new Intent(context, ArticleDetailActivity.class);
+
+            // Pass the selected article to a new intent
+            articleDetailIntent.putExtra(Constants.ARTICLE_WRAP, Parcels.wrap(article));
+
+        });
 
     }
 

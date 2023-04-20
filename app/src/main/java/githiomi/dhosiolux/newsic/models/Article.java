@@ -1,8 +1,11 @@
 package githiomi.dhosiolux.newsic.models;
 
+import org.parceler.Parcel;
+
 import lombok.Data;
 
 // This is the class that holds the structure of each individual news article
+@Parcel
 @Data
 public class Article {
 
