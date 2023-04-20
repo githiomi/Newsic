@@ -1,8 +1,11 @@
 package githiomi.dhosiolux.newsic.activities;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +17,14 @@ import java.util.List;
 import githiomi.dhosiolux.newsic.adapters.ArticleAdapter;
 import githiomi.dhosiolux.newsic.adapters.CategoryAdapter;
 import githiomi.dhosiolux.newsic.databinding.ActivityMainBinding;
+import githiomi.dhosiolux.newsic.interfaces.RetrofitAPI;
 import githiomi.dhosiolux.newsic.models.Article;
 import githiomi.dhosiolux.newsic.models.Category;
 import githiomi.dhosiolux.newsic.models.Constants;
+import githiomi.dhosiolux.newsic.models.News;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -127,6 +135,61 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
                 .baseUrl(Constants.NEWS_API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
+        // Call from my RetrofitAPI
+        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+
+        // Configure the API call
+        Call<News> newsAPICall;
+
+        // Check if a category is passed
+        if (category.equals("all")) {
+            Toast.makeText(this, "Call for all categories", Toast.LENGTH_SHORT).show();
+            newsAPICall = retrofitAPI.getGlobalNews(Constants.GET_ALL_NEWS_URL);
+        } else {
+            Toast.makeText(this, "Call for the " + category + " category", Toast.LENGTH_SHORT).show();
+            newsAPICall = retrofitAPI.getCategoryNews(categoryURL);
+        }
+
+        // Making the API call
+        newsAPICall.enqueue(new Callback<News>() {
+            @Override
+            public void onResponse(@NonNull Call<News> call, @NonNull Response<News> response) {
+
+                // When the call returns a successful response
+                Toast.makeText(MainActivity.this, "API call successful", Toast.LENGTH_SHORT).show();
+
+                // Toggle view
+                toggleView("success");
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<News> call, @NonNull Throwable t) {
+
+                // If there is an error
+                Toast.makeText(MainActivity.this, "API call failed", Toast.LENGTH_SHORT).show();
+
+                // Toggle view
+                toggleView("fail");
+
+            }
+        });
+    }
+
+    public void toggleView(String status) {
+
+        // Hide the Progress Bar
+        trendingLoading.setVisibility(View.GONE);
+
+        if (status.equals("success")) {
+
+            // Show the recycler view
+            articlesRV.setVisibility(View.VISIBLE);
+
+        } else {
+
+            // Show the error message
+        }
 
     }
 }

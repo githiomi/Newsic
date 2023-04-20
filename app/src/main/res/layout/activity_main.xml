@@ -110,6 +110,38 @@
             android:layout_centerInParent="true"
             android:indeterminateTint="@color/main_color" />
 
+        <TextView
+            android:id="@+id/TV_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/PB_trending"
+            android:text="@string/loading"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/main_color"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!-- Error Message -->
+    <RelativeLayout
+        android:id="@+id/RL_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/LL_trendingHeader"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/TV_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/api_error"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/main_color"
+            android:textStyle="bold" />
+
     </RelativeLayout>
 
     <!-- Trending news Recycler View -->

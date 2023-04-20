@@ -9,4 +9,6 @@
     <string name="global_news">Global News</string>
     <string name="category_ph">Category</string>
     <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
+    <string name="api_error">Error loading news. Check your internet connection…</string>
+    <string name="loading">Loading news articles. Please wait...</string>
 </resources>
