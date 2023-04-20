@@ -2,6 +2,7 @@ package githiomi.dhosiolux.newsic.activities;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
         ActivityMainBinding mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         // Set Content view
         setContentView(mainBinding.getRoot());
+
+        // Full screen flags
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         // Binding Views
         categoriesRV = mainBinding.RVCategories;
@@ -171,9 +175,8 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
                 News news = response.body();
 
                 // Get all the news articles from the response
-                List<Article> responseArticles = new ArrayList<>();
                 assert news != null;
-                responseArticles = news.getArticles();
+                List<Article> responseArticles = news.getArticles();
 
                 // For each article, create a new article object and add it to the list
                 for (Article article : responseArticles) {

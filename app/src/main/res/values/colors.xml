@@ -17,6 +17,7 @@
     <color name="raisin_black">#212227</color>
     <color name="prussian_blue">#002642</color>
     <color name="main_color">#E59500</color>
+    <color name="main_color_variant">#AA6F01</color>
     <color name="rich_black">#02040F</color>
     <color name="dim_gray">#637074</color>
 </resources>
