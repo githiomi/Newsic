@@ -23,7 +23,7 @@
         <activity
             android:name=".activities.SplashScreenActivity"
             android:exported="true"
-            android:theme="@style/Theme.Newsic.Fullscreen">
+            android:theme="@style/Theme.SplashScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

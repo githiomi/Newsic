@@ -23,6 +23,6 @@ public class SplashScreenActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
             finish(); // To the destroy activity
 
-        }, 4000);
+        }, 3000);
     }
 }
