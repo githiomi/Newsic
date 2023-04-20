@@ -45,9 +45,9 @@
             <ImageView
                 android:id="@+id/IV_articleImage"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="250dp"
                 android:contentDescription="@string/content_description"
-                android:padding="10dp"
+                android:layout_margin="15dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/trending_item_ph" />
 
