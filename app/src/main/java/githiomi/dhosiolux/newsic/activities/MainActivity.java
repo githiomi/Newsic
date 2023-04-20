@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -115,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
 
         // Set adapter
         categoriesRV.setAdapter(categoryAdapter);
-        categoriesRV.setLayoutManager(new GridLayoutManager(MainActivity.this, 8, GridLayoutManager.VERTICAL, false));
+        categoriesRV.setLayoutManager(new GridLayoutManager(MainActivity.this, 1, GridLayoutManager.HORIZONTAL, false));
         categoriesRV.setHasFixedSize(true);
 
     }
@@ -160,11 +161,34 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
             @Override
             public void onResponse(@NonNull Call<News> call, @NonNull Response<News> response) {
 
+                // Toggle view
+                toggleView("success");
+
                 // When the call returns a successful response
                 Toast.makeText(MainActivity.this, "API call successful", Toast.LENGTH_SHORT).show();
 
-                // Toggle view
-                toggleView("success");
+                // Create a news object to hold the results
+                News news = response.body();
+
+                // Get all the news articles from the response
+                List<Article> responseArticles = new ArrayList<>();
+                assert news != null;
+                responseArticles = news.getArticles();
+
+                // For each article, create a new article object and add it to the list
+                for (Article article : responseArticles) {
+
+                    // Create new article object
+                    Article newArticle = new Article(article.getAuthor(), article.getTitle(), article.getDescription(), article.getUrl(), article.getUrlToImage(), article.getPublishedAt(), article.getContent());
+
+                    // Add new object to the arraylist
+                    articleList.add(newArticle);
+
+                }
+
+                // Pass the articles list to adapter
+                passToArticlesAdapter(articleList);
+
             }
 
             @Override
@@ -201,6 +225,23 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
             trendingError.setVisibility(View.VISIBLE);
 
         }
+
+    }
+
+    /**
+     * Method to init the adapter and set it to the recycler view
+     *
+     * @param articles list of articles to be passed to the adapter
+     */
+    public void passToArticlesAdapter(List<Article> articles) {
+
+        // Init adapter
+        articleAdapter = new ArticleAdapter(articles, this);
+
+        // Set adapter
+        articlesRV.setAdapter(articleAdapter);
+        articlesRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        articlesRV.setHasFixedSize(true);
 
     }
 }
