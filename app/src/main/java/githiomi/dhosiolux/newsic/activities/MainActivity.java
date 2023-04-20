@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -153,10 +152,8 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
 
         // Check if a category is passed
         if (category.equals("all")) {
-            Toast.makeText(this, "Call for all categories", Toast.LENGTH_SHORT).show();
             newsAPICall = retrofitAPI.getGlobalNews(Constants.GET_ALL_NEWS_URL);
         } else {
-            Toast.makeText(this, "Call for the " + category + " category", Toast.LENGTH_SHORT).show();
             newsAPICall = retrofitAPI.getCategoryNews(categoryURL);
         }
 
@@ -167,9 +164,6 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
 
                 // Toggle view
                 toggleView("success");
-
-                // When the call returns a successful response
-                Toast.makeText(MainActivity.this, "API call successful", Toast.LENGTH_SHORT).show();
 
                 // Create a news object to hold the results
                 News news = response.body();
@@ -196,9 +190,6 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
 
             @Override
             public void onFailure(@NonNull Call<News> call, @NonNull Throwable t) {
-
-                // If there is an error
-                Toast.makeText(MainActivity.this, "API call failed", Toast.LENGTH_SHORT).show();
 
                 // Toggle view
                 toggleView("fail");
