@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
 
     // Layout Views
     RecyclerView categoriesRV, articlesRV;
-    RelativeLayout trendingLoading;
+    RelativeLayout trendingLoading, trendingError;
 
     // Adapters
     CategoryAdapter categoryAdapter;
@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
         categoriesRV = mainBinding.RVCategories;
         articlesRV = mainBinding.RVTrendingNews;
         trendingLoading = mainBinding.RLLoading;
+        trendingError = mainBinding.RLError;
 
         // Init variables
         categoryList = new ArrayList<>();
@@ -63,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
         // Initialize the categories
         initCategories();
 
-        // Make API call to get the news
-        getNewsArticles();
+        // Make API call to get all the news when the application loads
+        getNewsArticles("all");
     }
 
     /**
@@ -74,7 +75,12 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
      */
     @Override
     public void onCategoryClick(int categoryPosition) {
+
         // Get the position when a category is clicked
+        String categoryName = Constants.NEWS_CATEGORIES[categoryPosition];
+
+        // Make an API call with the category name
+        getNewsArticles(categoryName);
     }
 
     /**
@@ -111,8 +117,6 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
         categoriesRV.setAdapter(categoryAdapter);
         categoriesRV.setLayoutManager(new GridLayoutManager(MainActivity.this, 8, GridLayoutManager.VERTICAL, false));
         categoriesRV.setHasFixedSize(true);
-
-        categoryAdapter.notifyAll();
 
     }
 
@@ -176,6 +180,11 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
         });
     }
 
+    /**
+     * To hide the progress bar and toggle display based on the callback status
+     *
+     * @param status the callback status of the API call
+     */
     public void toggleView(String status) {
 
         // Hide the Progress Bar
@@ -189,6 +198,8 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
         } else {
 
             // Show the error message
+            trendingError.setVisibility(View.VISIBLE);
+
         }
 
     }
