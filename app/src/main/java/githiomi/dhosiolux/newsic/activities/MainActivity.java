@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ import githiomi.dhosiolux.newsic.databinding.ActivityMainBinding;
 import githiomi.dhosiolux.newsic.models.Article;
 import githiomi.dhosiolux.newsic.models.Category;
 import githiomi.dhosiolux.newsic.models.Constants;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements CategoryAdapter.OnCategoryClickInterface {
 
@@ -49,6 +52,28 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
         categoryList = new ArrayList<>();
         articleList = new ArrayList<>();
 
+        // Initialize the categories
+        initCategories();
+
+        // Make API call to get the news
+        getNewsArticles();
+    }
+
+    /**
+     * Interface passed from the category adapter to alter the main activity view
+     *
+     * @param categoryPosition the position of a category item in the list
+     */
+    @Override
+    public void onCategoryClick(int categoryPosition) {
+        // Get the position when a category is clicked
+    }
+
+    /**
+     * The method to set all the category names and background images
+     */
+    public void initCategories() {
+
         // Init the categories
         categoryList = Arrays.asList(
                 new Category(Constants.NEWS_CATEGORIES[0], "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGdlbmVyYWx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"),
@@ -60,15 +85,48 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
                 new Category(Constants.NEWS_CATEGORIES[6], "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"),
                 new Category(Constants.NEWS_CATEGORIES[7], "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNjaWVuY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
         );
+
+        passToCategoriesAdapter(categoryList);
     }
 
     /**
-     * Interface passed from the category adapter to alter the main activity view
+     * Method to init the adapter and set it to the recycler view
      *
-     * @param categoryPosition the position of a category item in the list
+     * @param categories - the categories list to be passed to the adapter
      */
-    @Override
-    public void onCategoryClick(int categoryPosition) {
-        // Get the position when a category is clicked
+    public void passToCategoriesAdapter(List<Category> categories) {
+
+        // Init adapter
+        categoryAdapter = new CategoryAdapter(MainActivity.this, categories, this);
+
+        // Set adapter
+        categoriesRV.setAdapter(categoryAdapter);
+        categoriesRV.setLayoutManager(new GridLayoutManager(MainActivity.this, 8, GridLayoutManager.VERTICAL, false));
+        categoriesRV.setHasFixedSize(true);
+
+        categoryAdapter.notifyAll();
+
+    }
+
+    /**
+     * The method that will make the API calls to get the news articles
+     *
+     * @param category the string passed into the method to get the news articles
+     */
+    public void getNewsArticles(String category) {
+
+        // Clear out any items in the articles list
+        articleList.clear();
+
+        // Important strings
+        String categoryURL = "https://newsapi.org/v2/top-headlines?country=" +
+                Constants.COUNTRY + "&category=" + category + "&apiKey=" + Constants.NEWS_API_KEY;
+
+        // Initialize Retrofit
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.NEWS_API_BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
     }
 }
