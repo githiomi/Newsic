@@ -5,7 +5,7 @@ public class Constants {
     // Application Constants
     public static final String NEWS_API_BASE_URL = "https://newsapi.org/";
 
-    public static final String[] NEWS_CATEGORIES = {"business", "entertainment", "general", "health", "science", "sports", "technology"};
+    public static final String[] NEWS_CATEGORIES = {"all", "business", "entertainment", "general", "health", "science", "sports", "technology"};
 
     public static final String COUNTRY = "us";
 

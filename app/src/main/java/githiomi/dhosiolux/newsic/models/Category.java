@@ -5,13 +5,11 @@ public class Category {
 
     // Instance variables
     private String categoryName;
-    private String categoryUrl;
     private String categoryImageUrl;
 
     // Constructor
-    public Category(String categoryName, String categoryUrl, String categoryImageUrl) {
+    public Category(String categoryName, String categoryImageUrl) {
         this.categoryName = categoryName;
-        this.categoryUrl = categoryUrl;
         this.categoryImageUrl = categoryImageUrl;
     }
 
@@ -22,14 +20,6 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
-    }
-
-    public String getCategoryUrl() {
-        return categoryUrl;
-    }
-
-    public void setCategoryUrl(String categoryUrl) {
-        this.categoryUrl = categoryUrl;
     }
 
     public String getCategoryImageUrl() {
