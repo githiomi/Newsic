@@ -2,7 +2,6 @@ package githiomi.dhosiolux.newsic.activities;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -51,9 +50,6 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
         ActivityMainBinding mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         // Set Content view
         setContentView(mainBinding.getRoot());
-
-        // Full screen flags
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         // Binding Views
         categoriesRV = mainBinding.RVCategories;

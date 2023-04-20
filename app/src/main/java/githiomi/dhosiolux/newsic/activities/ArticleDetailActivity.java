@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,9 +33,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
         ActivityArticleDetailBinding articleBinding = ActivityArticleDetailBinding.inflate(getLayoutInflater());
         // Set content view
         setContentView(articleBinding.getRoot());
-
-        // Full screen flags
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         // Binding views
         articleImage = articleBinding.IVArticleImage;
